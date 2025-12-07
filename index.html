@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Password 💖</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #ffd1dc, #ffe6f2, #ffffff);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .emoji {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.4;
+            animation: float 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); opacity: 0.3; }
+            50% { transform: translateY(-20px); opacity: 0.7; }
+            100% { transform: translateY(0px); opacity: 0.3; }
+        }
+
+        .login-box {
+            background: rgba(255,255,255,0.45);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(255,105,180,0.2);
+            text-align: center;
+            backdrop-filter: blur(10px);
+            width: 90%;
+            max-width: 380px;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.3rem;
+            color: #d63384;
+            margin-bottom: 15px;
+        }
+
+        .hint {
+            color: #b80f6a;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px 15px;
+            font-size: 1rem;
+            border-radius: 12px;
+            border: 2px solid #ff8aba;
+            outline: none;
+            margin-bottom: 18px;
+            background: rgba(255,255,255,0.7);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #ff5fa2;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #d63384;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="emoji" style="top:10%; left:8%;">💖</div>
+    <div class="emoji" style="top:20%; right:10%;">💘</div>
+    <div class="emoji" style="top:70%; left:15%;">✨</div>
+    <div class="emoji" style="top:80%; right:5%;">💞</div>
+    <div class="emoji" style="top:40%; right:80%;">🫶</div>
+
+    <div class="login-box">
+        <div class="title">Guess the Password 💕</div>
+
+        <div class="hint">
+            Hint: A memorable and best day in our life 💫<br>
+        </div>
+
+        <input type="password" id="password" placeholder="Enter your guess...">
+
+        <button onclick="checkPassword()">Unlock ❤️</button>
+
+        <div id="error" class="error">Wrong password... try again my love 💗</div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const correctPassword = "five"; // Password in words
+            const entered = document.getElementById("password").value;
+
+            if (entered.toLowerCase() === correctPassword.toLowerCase()) {
+                window.location.href = "main.html";
+            } else {
+                document.getElementById("error").style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
